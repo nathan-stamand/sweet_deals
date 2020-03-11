@@ -2,6 +2,4 @@
 
 require "./lib/sweet_deals"
 
-puts "hello!"
-
 SweetDeals::CLI.new.call

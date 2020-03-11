@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
-require "./lib/sweet_deals"
+# require "./lib/sweet_deals"
+require "bundler/setup"
+require "sweet_deals"
 
 SweetDeals::CLI.new.call

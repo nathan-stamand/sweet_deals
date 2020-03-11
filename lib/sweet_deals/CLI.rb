@@ -8,6 +8,17 @@ class SweetDeals::CLI
 
     def list_deals 
         @deals = SweetDeals::Deal.all
+        i = 1
+        j = 0
+        @deals.each do |deal|
+            puts "#{i}. #{@deals[j].name}"
+            puts "   #{@deals[j].price}"
+            puts "   #{@deals[j].rating}"
+            puts "   #{@deals[j].url}"
+            i += 1
+            j += 1
+        end
+        return
     end
 
     def menu

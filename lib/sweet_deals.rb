@@ -1,6 +1,2 @@
-require "sweet_deals/version"
-
-module SweetDeals
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./sweet_deals/version"
+require_relative './sweet_deals/CLI'

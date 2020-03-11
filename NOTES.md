@@ -17,10 +17,17 @@ How to Build a CLI Gem
 
  1. Sure microphone 
     $15 Used Savings
-    Current Price: $245 
+    Current Price: $245
 
 Which product do you want to know more about?
  
 1 
 
 Provides more info by following link / scraping again.
+
+What is a deal? 
+a deal has a: 
+    name
+    price 
+    rating
+    url

@@ -1,16 +1,13 @@
 class SweetDeals::CLI
-
+    attr_accessor :deals
     def call
-        puts "Today's deals are..."
         list_deals
         menu
         goodbye
     end
 
     def list_deals 
-        puts <<-DOC.gsub /^\s*/, ''
-        1. Sure microphone - Current Price: $245
-        DOC
+        @deals = SweetDeals::Deal.all
     end
 
     def menu

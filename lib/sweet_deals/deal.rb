@@ -18,7 +18,7 @@ class SweetDeals::Deal
     end
 
     def self.all 
-        puts "Here da damn deals!"
+        puts "Welcome to SweetDeals! Here are your daily sweet deals!"
         @@all
     end 
 

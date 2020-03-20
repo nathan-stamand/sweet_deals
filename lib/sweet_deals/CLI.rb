@@ -2,7 +2,7 @@ class SweetDeals::CLI
     attr_accessor :deals
 
     def call
-        Scraper.new.get_deals
+        Scraper.get_deals
         list_deals
         menu
         goodbye
@@ -26,13 +26,16 @@ class SweetDeals::CLI
         input = nil
         while input != 'exit'
             input = gets.strip
-            case input
-                when '1'
-                    puts 'more info on deal 1...'
-                when 'list'
-                    list_deals
+            if input == 'list'
+                list_deals
+            elsif input.to_i > 0 && input.to_i < @deals.length + 1
+                    j = input.to_i - 1 
+                    puts "#{@deals[j].number}. #{@deals[j].name}"
+                    puts "   #{@deals[j].price}"
+                    puts "   #{@deals[j].details}"
+                    puts "   #{@deals[j].url}"
+                    puts "#{Scraper.get_more_info(@deals[j])}"
             end
-            
         end
     end
 

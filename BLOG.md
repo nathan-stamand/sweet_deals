@@ -80,3 +80,15 @@ After this, the user can decide between going back to the list by typing 'list' 
 Should the user choose list, the original list will appear and they may select another number. If they select exit (at any time, not just when they have selected an item) the program will exit, after displaying a farewell message. 
 
 So I had mapped out the CLI method #call to pull various other methods until I had a pseudo-functioning hard-coded program. 
+
+The next phase from then was setting up my Scraper object class to pull information from the Zzounds site so it could filter through to the other parts of the program. This proved a bit difficult, for reasons I'm still unclear about. For instance, there were 12 original 'items' in the deals section of the site, so I had used the 'each' method to iterate through them. It was successful in some capacity, but it stopped after 5 iterations. So I adjusted the code (after trying all sorts of different css selectors) to simply iterate 12 times with the 'times' method. I didn't like hard coding that, because obviously I'd love a more abstract code, but it looked like there were *always* 12 items, so I thought it was safe. Until today. There were *eleven items today*. Just to spite me and my little program. So, I tried more stuff with css selectors, before I finally used binding.pry to see how many items Nokogiri thought there were in my selection. Sure enough, it said five items. I still had no idea why, but I then changed the selector until it came up with 11 items, and created a variable that would use *that* selector's amount of items for my #times method to run on. It's not a beautiful fix, but it'll do for now. I may be able to fix it more elegantly later, but the process is wearing on me at this point.
+
+I finally had my scraper kicking at this point, it pulled and numbered each item from the site beautifully and composed a list with the stats of each when the program started. My program could now: 
+
+a. Greet the user with a list of deals,
+b. Ask them if they'd like to see more details on any of the items (although, it had none to offer at this point),
+c. Execute the options of seeing the list again (by typing and entering 'list') or exiting the program (by typing exit)
+d. Displaying an exit message before closing, should the user be done with it. 
+
+Not a bad program so far. After this point it was a matter of getting some details to display when the user selected an item. I decided that the easiest starting point was to pull the large Details section of the item's page. Back to the Scraper class, to develop a new method!
+

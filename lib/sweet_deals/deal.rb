@@ -1,18 +1,24 @@
 class SweetDeals::Deal 
-    attr_accessor :name, :price, :rating, :url, :number
+    attr_accessor :name, :price, :details, :url, :number
     @@all = [] 
 
-    def initialize(name, price, rating, url)
+    def initialize(name, price, details, url)
         @name = name
         @price = price 
-        @rating = rating 
+        @details = details
         @url = url 
-        @number = @@all.length
+        @number = @@all.length + 1
         @@all << self
     end 
 
+    def self.create_new(name, price, details, url)
+        new_deal = self.new(name, price, details, url)
+        # new_deal.number = @@all.length + 1
+        # @@all << new_deal
+    end
+
     def self.all 
-        puts "Here are the deals of the day:"
+        puts "Here da damn deals!"
         @@all
     end 
 
